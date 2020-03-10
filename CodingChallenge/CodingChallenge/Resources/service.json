@@ -1,0 +1,39 @@
+{
+  "schedules": [
+    {
+      "start_time": "8:00 AM",
+      "end_time": "10:00 AM",
+      "name": "FIT1031",
+      "description": "Lecture 01",
+      "lecturer": "Arun",
+      "room": "S4",
+      "campus": "13 College Walk, Clayton"
+    },
+    {
+      "start_time": "10:30 AM",
+      "end_time": "12:30 PM",
+      "name": "FIT1031",
+      "description": "Lecture 01",
+      "lecturer": "Arun",
+      "room": "S4",
+      "campus": "13 College Walk, Clayton"
+    },
+    {
+      "start_time": "8:00 AM",
+      "end_time": "10:00 AM",
+      "name": "FIT1031",
+      "description": "Lecture 01",
+      "lecturer": "Arun",
+      "room": "S4",
+      "campus": "13 College Walk, Clayton"
+    }
+  ],
+  "parking_slot": 645,
+  "stops" : [
+  {
+      "departure" : "Clayton",
+      "arrival": "Caufield",
+      "predicted_arrival_date": "2020-03-10T17:00:00Z"
+  }
+  ]
+}
