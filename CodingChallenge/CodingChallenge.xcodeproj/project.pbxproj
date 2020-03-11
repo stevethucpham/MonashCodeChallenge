@@ -16,8 +16,21 @@
 		6A647C142417C74F00ED7CC0 /* service.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A647C132417C74F00ED7CC0 /* service.json */; };
 		6A647C172417C7A700ED7CC0 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647C162417C7A700ED7CC0 /* DataService.swift */; };
 		6A647C192417C85C00ED7CC0 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647C182417C85C00ED7CC0 /* Schedule.swift */; };
-		6A647C1F2417D04C00ED7CC0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647C1E2417D04C00ED7CC0 /* BaseViewController.swift */; };
 		6A647C23241843B100ED7CC0 /* NavigationTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647C22241843B100ED7CC0 /* NavigationTitleView.swift */; };
+		6A647C272418599900ED7CC0 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647C262418599900ED7CC0 /* UIColorExtension.swift */; };
+		6A647C2924185A2200ED7CC0 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647C2824185A2200ED7CC0 /* Constant.swift */; };
+		6A647C2B2418613B00ED7CC0 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647C2A2418613A00ED7CC0 /* UINavigationControllerExtension.swift */; };
+		6A647C2E2418638A00ED7CC0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647C2D2418638A00ED7CC0 /* HomeViewModel.swift */; };
+		6A647C31241864C900ED7CC0 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647C2F241864C900ED7CC0 /* CourseCell.swift */; };
+		6A647C32241864C900ED7CC0 /* CourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A647C30241864C900ED7CC0 /* CourseCell.xib */; };
+		6A647C35241864E800ED7CC0 /* ParkingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647C33241864E800ED7CC0 /* ParkingCell.swift */; };
+		6A647C36241864E800ED7CC0 /* ParkingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A647C34241864E800ED7CC0 /* ParkingCell.xib */; };
+		6A647C3C2418654C00ED7CC0 /* CourseHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647C3B2418654C00ED7CC0 /* CourseHeaderView.swift */; };
+		6A647C3E2418655C00ED7CC0 /* CourseHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A647C3D2418655C00ED7CC0 /* CourseHeaderView.xib */; };
+		6A647C412418757D00ED7CC0 /* BusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647C3F2418757D00ED7CC0 /* BusCell.swift */; };
+		6A647C422418757D00ED7CC0 /* BusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A647C402418757D00ED7CC0 /* BusCell.xib */; };
+		6A647C4424188C8000ED7CC0 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647C4324188C8000ED7CC0 /* DateExtension.swift */; };
+		6A647C462418ABAA00ED7CC0 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647C452418ABAA00ED7CC0 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +57,21 @@
 		6A647C132417C74F00ED7CC0 /* service.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = service.json; sourceTree = "<group>"; };
 		6A647C162417C7A700ED7CC0 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		6A647C182417C85C00ED7CC0 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
-		6A647C1E2417D04C00ED7CC0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		6A647C22241843B100ED7CC0 /* NavigationTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitleView.swift; sourceTree = "<group>"; };
+		6A647C262418599900ED7CC0 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		6A647C2824185A2200ED7CC0 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		6A647C2A2418613A00ED7CC0 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
+		6A647C2D2418638A00ED7CC0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		6A647C2F241864C900ED7CC0 /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
+		6A647C30241864C900ED7CC0 /* CourseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseCell.xib; sourceTree = "<group>"; };
+		6A647C33241864E800ED7CC0 /* ParkingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingCell.swift; sourceTree = "<group>"; };
+		6A647C34241864E800ED7CC0 /* ParkingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParkingCell.xib; sourceTree = "<group>"; };
+		6A647C3B2418654C00ED7CC0 /* CourseHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseHeaderView.swift; sourceTree = "<group>"; };
+		6A647C3D2418655C00ED7CC0 /* CourseHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseHeaderView.xib; sourceTree = "<group>"; };
+		6A647C3F2418757D00ED7CC0 /* BusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusCell.swift; sourceTree = "<group>"; };
+		6A647C402418757D00ED7CC0 /* BusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusCell.xib; sourceTree = "<group>"; };
+		6A647C4324188C8000ED7CC0 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		6A647C452418ABAA00ED7CC0 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +113,7 @@
 		6A647BEC2417A22100ED7CC0 /* CodingChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				6A647C242418594800ED7CC0 /* Shared */,
 				6A647C212418438700ED7CC0 /* Views */,
 				6A647C1B2417C9C400ED7CC0 /* Storyboard */,
 				6A647C152417C79600ED7CC0 /* Services */,
@@ -123,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				6A647BF12417A22100ED7CC0 /* HomeViewController.swift */,
-				6A647C1E2417D04C00ED7CC0 /* BaseViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -131,6 +157,7 @@
 		6A647C112417A2E700ED7CC0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				6A647C2D2418638A00ED7CC0 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -163,8 +190,44 @@
 			isa = PBXGroup;
 			children = (
 				6A647C22241843B100ED7CC0 /* NavigationTitleView.swift */,
+				6A647C3B2418654C00ED7CC0 /* CourseHeaderView.swift */,
+				6A647C3D2418655C00ED7CC0 /* CourseHeaderView.xib */,
+				6A647C2C2418619E00ED7CC0 /* Cells */,
+				6A647C452418ABAA00ED7CC0 /* CardView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		6A647C242418594800ED7CC0 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				6A647C252418595000ED7CC0 /* Extension */,
+				6A647C2824185A2200ED7CC0 /* Constant.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		6A647C252418595000ED7CC0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				6A647C262418599900ED7CC0 /* UIColorExtension.swift */,
+				6A647C2A2418613A00ED7CC0 /* UINavigationControllerExtension.swift */,
+				6A647C4324188C8000ED7CC0 /* DateExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		6A647C2C2418619E00ED7CC0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				6A647C2F241864C900ED7CC0 /* CourseCell.swift */,
+				6A647C30241864C900ED7CC0 /* CourseCell.xib */,
+				6A647C33241864E800ED7CC0 /* ParkingCell.swift */,
+				6A647C34241864E800ED7CC0 /* ParkingCell.xib */,
+				6A647C3F2418757D00ED7CC0 /* BusCell.swift */,
+				6A647C402418757D00ED7CC0 /* BusCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,7 +313,11 @@
 			files = (
 				6A647BFA2417A22300ED7CC0 /* LaunchScreen.storyboard in Resources */,
 				6A647C142417C74F00ED7CC0 /* service.json in Resources */,
+				6A647C3E2418655C00ED7CC0 /* CourseHeaderView.xib in Resources */,
 				6A647BF72417A22300ED7CC0 /* Assets.xcassets in Resources */,
+				6A647C32241864C900ED7CC0 /* CourseCell.xib in Resources */,
+				6A647C36241864E800ED7CC0 /* ParkingCell.xib in Resources */,
+				6A647C422418757D00ED7CC0 /* BusCell.xib in Resources */,
 				6A647BF52417A22100ED7CC0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,11 +336,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A647C1F2417D04C00ED7CC0 /* BaseViewController.swift in Sources */,
+				6A647C4424188C8000ED7CC0 /* DateExtension.swift in Sources */,
+				6A647C272418599900ED7CC0 /* UIColorExtension.swift in Sources */,
+				6A647C2B2418613B00ED7CC0 /* UINavigationControllerExtension.swift in Sources */,
+				6A647C31241864C900ED7CC0 /* CourseCell.swift in Sources */,
+				6A647C2E2418638A00ED7CC0 /* HomeViewModel.swift in Sources */,
 				6A647C172417C7A700ED7CC0 /* DataService.swift in Sources */,
+				6A647C2924185A2200ED7CC0 /* Constant.swift in Sources */,
 				6A647BF22417A22100ED7CC0 /* HomeViewController.swift in Sources */,
+				6A647C35241864E800ED7CC0 /* ParkingCell.swift in Sources */,
 				6A647C23241843B100ED7CC0 /* NavigationTitleView.swift in Sources */,
+				6A647C3C2418654C00ED7CC0 /* CourseHeaderView.swift in Sources */,
 				6A647C192417C85C00ED7CC0 /* Schedule.swift in Sources */,
+				6A647C412418757D00ED7CC0 /* BusCell.swift in Sources */,
+				6A647C462418ABAA00ED7CC0 /* CardView.swift in Sources */,
 				6A647BEE2417A22100ED7CC0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

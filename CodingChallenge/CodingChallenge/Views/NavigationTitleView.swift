@@ -23,9 +23,9 @@ class NavigationTitleView: UIView {
     private var subTitleLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .clear
-        label.font = UIFont.boldSystemFont(ofSize: 14.0)
+        label.font = UIFont.systemFont(ofSize: 14.0)
         label.textAlignment = .left
-        label.textColor = .black
+        label.textColor = .gray
         label.sizeToFit()
         return label
     }()
