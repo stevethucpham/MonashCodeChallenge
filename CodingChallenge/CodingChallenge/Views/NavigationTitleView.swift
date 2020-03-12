@@ -60,11 +60,11 @@ class NavigationTitleView: UIView {
     }
     
     private func setupView() {
-        let stackView   = UIStackView()
-        stackView.axis  = NSLayoutConstraint.Axis.vertical
-        stackView.distribution  = UIStackView.Distribution.equalSpacing
-        stackView.alignment = UIStackView.Alignment.leading
-        stackView.spacing   = 5
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.distribution = .equalSpacing
+        stackView.alignment = .leading
+        stackView.spacing = 5
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(subTitleLabel)
         stackView.translatesAutoresizingMaskIntoConstraints = false

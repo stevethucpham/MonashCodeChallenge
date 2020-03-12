@@ -4,7 +4,7 @@
       "start_time": "8:00 AM",
       "end_time": "10:00 AM",
       "name": "FIT1031",
-      "description": "Lecture 01",
+      "class": "Lecture 01",
       "lecturer": "Arun",
       "room": "S4",
       "campus": "13 College Walk, Clayton"
@@ -13,22 +13,31 @@
       "start_time": "10:30 AM",
       "end_time": "12:30 PM",
       "name": "FIT1031",
-      "description": "Lecture 01",
+      "class": "Lecture 01",
       "lecturer": "Arun",
       "room": "S4",
       "campus": "13 College Walk, Clayton"
     },
     {
-      "start_time": "8:00 AM",
-      "end_time": "10:00 AM",
+      "start_time": "18:00 PM",
+      "end_time": "20:00 PM",
       "name": "FIT1031",
-      "description": "Lecture 01",
+      "class": "Lecture 01",
       "lecturer": "Arun",
       "room": "S4",
       "campus": "13 College Walk, Clayton"
     }
   ],
-  "parking_slot": 645,
+  "parkings": [
+      {
+          "name": "Clayton live feed",
+          "slot": 645
+      },
+      {
+          "name": "Caufield live feed",
+          "slot": 3000
+      }
+  ],
   "stops" : [
   {
       "departure" : "Clayton",

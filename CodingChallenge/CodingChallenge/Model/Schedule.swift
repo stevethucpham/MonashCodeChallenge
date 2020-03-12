@@ -8,38 +8,47 @@
 
 import Foundation
 
+protocol HomeCellModel {
+    
+}
+
 // MARK: - Timetable
-struct Timetable: Codable {
-    let schedules: [Schedule]?
-    let parkingSlot: Int
-    let stops: [Stop]?
+struct Timetable: Decodable {
+    let schedules: [Schedule]
+    let parkings: [Parking]
+    let stops: [Stop]
 
     enum CodingKeys: String, CodingKey {
         case schedules
-        case parkingSlot = "parking_slot"
+        case parkings
         case stops
     }
 }
 
 // MARK: - Schedule
-struct Schedule: Codable {
-    let startTime, endTime, course, scheduleClass: String
+struct Schedule: Decodable {
+    let startTime, endTime, name, scheduleClass: String
     let lecturer, room, campus: String
 
     enum CodingKeys: String, CodingKey {
         case startTime = "start_time"
         case endTime = "end_time"
-        case course
+        case name
         case scheduleClass = "class"
         case lecturer, room, campus
     }
 }
 
+struct Parking: Decodable {
+    let name: String
+    let slot: Int
+}
+
 
 // MARK: - Stop
-struct Stop: Codable {
+struct Stop: Decodable {
     let departure, arrival: String
-    let predictedArrivalDate: Date
+    let predictedArrivalDate: String
 
     enum CodingKeys: String, CodingKey {
         case departure, arrival

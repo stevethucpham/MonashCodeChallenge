@@ -19,6 +19,20 @@ extension Date {
         self.init(timeInterval:0, since:date)
     }
     
+    /// Convert date to string
+       ///
+       /// - Parameter format: DateFormatter
+       /// - Returns: String from date
+       func toString(format: DateFormatter)-> String {
+           return format.string(from:self)
+       }
+    
+    func convertToString(dateFormat: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        return toString(format: dateFormatter)
+    }
+    
     /// This method is used to display the hour in 12 hour format
     func timeIn12HourFormat() -> String {
         let formatter = DateFormatter()

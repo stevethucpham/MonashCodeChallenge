@@ -1,8 +1,8 @@
 //
-//  CourseCell.swift
+//  CourceCell.swift
 //  CodingChallenge
 //
-//  Created by iOS Developer on 3/11/20.
+//  Created by iOS Developer on 3/12/20.
 //  Copyright © 2020 iOS Developer. All rights reserved.
 //
 
@@ -10,15 +10,11 @@ import UIKit
 
 class CourseCell: UITableViewCell {
 
+    @IBOutlet weak var stackView: UIStackView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }
