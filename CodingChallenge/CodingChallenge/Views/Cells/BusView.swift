@@ -10,15 +10,13 @@ import UIKit
 
 class BusView: UIView {
 
-    @IBOutlet weak var containerView: UIView!
+
     @IBOutlet weak var departureLabel: UILabel!
     @IBOutlet weak var arrivalLabel: UILabel!
     @IBOutlet weak var predictedTimeLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
+    @IBOutlet weak var seperateView: UIView!
+
     
     func configureCell(_ model: BusCellModel) {
         departureLabel.text = model.departure
@@ -27,20 +25,14 @@ class BusView: UIView {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupInit()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupInit()
-    }
-    
-    func setupInit() {
-        Bundle.main.loadNibNamed("BusView", owner: self, options: nil)
-        containerView.frame = self.bounds
-        addSubview(containerView)
-    }
+           super.init(coder: coder)
+           fatalError()
+       }
+
+       init() {
+           super.init(frame: .zero)
+           fromNib()
+       }
 }
 
 struct BusCellModel: HomeCellModel {

@@ -12,7 +12,8 @@ class ParkingView: UIView {
     
     @IBOutlet private var parkingLabel: UILabel!
     @IBOutlet private var parkingSlotLabel: UILabel!
-
+    @IBOutlet weak var seperatorView: UIView!
+    
     func configureCell(_ model: ParkingCellModel) {
         parkingLabel.text = model.parkingName
         parkingSlotLabel.text = "\(model.parkingSlots)"
@@ -35,16 +36,3 @@ struct ParkingCellModel: HomeCellModel {
     var parkingSlots: Int
 }
 
-extension UIView {
-    @discardableResult
-    func fromNib<T: UIView>() -> T? {
-        guard let view = Bundle.main.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)?[0] as? T else {
-            return nil
-        }
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.translatesAutoresizingMaskIntoConstraints = true
-        view.frame = bounds
-        addSubview(view)
-        return view
-    }
-}

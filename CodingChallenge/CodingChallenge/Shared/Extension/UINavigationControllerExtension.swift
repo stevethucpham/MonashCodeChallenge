@@ -53,7 +53,20 @@ extension UIView {
 //        layer.shadowPath = shadowPath.cgPath
     }
     
-//    func shadowCorners() {
-//
-//    }
+    @discardableResult
+    func fromNib<T: UIView>() -> T? {
+        guard let view = Bundle.main.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)?[0] as? T else {
+            return nil
+        }
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.translatesAutoresizingMaskIntoConstraints = true
+        view.frame = bounds
+        addSubview(view)
+        return view
+    }
 }
+
+extension UIView {
+    
+}
+

@@ -24,24 +24,24 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yy-JK-HMJ" customClass="CardView" customModule="CodingChallenge" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="20" width="382" height="4"/>
+                                            <rect key="frame" x="10" y="20" width="394" height="4"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="o5Y-AE-fII">
-                                                    <rect key="frame" x="15" y="5" width="352" height="0.0"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="o5Y-AE-fII">
+                                                    <rect key="frame" x="0.0" y="5" width="394" height="0.0"/>
                                                 </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="o5Y-AE-fII" secondAttribute="bottom" constant="5" id="H0w-bG-RF6"/>
-                                                <constraint firstItem="o5Y-AE-fII" firstAttribute="leading" secondItem="0yy-JK-HMJ" secondAttribute="leading" constant="15" id="JAL-1v-D0j"/>
+                                                <constraint firstItem="o5Y-AE-fII" firstAttribute="leading" secondItem="0yy-JK-HMJ" secondAttribute="leading" id="JAL-1v-D0j"/>
                                                 <constraint firstItem="o5Y-AE-fII" firstAttribute="top" secondItem="0yy-JK-HMJ" secondAttribute="top" constant="5" id="NgZ-w2-net"/>
-                                                <constraint firstAttribute="trailing" secondItem="o5Y-AE-fII" secondAttribute="trailing" constant="15" id="wLs-z5-m2d"/>
+                                                <constraint firstAttribute="trailing" secondItem="o5Y-AE-fII" secondAttribute="trailing" id="wLs-z5-m2d"/>
                                             </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="0yy-JK-HMJ" secondAttribute="trailing" constant="16" id="Oqf-eY-ywg"/>
-                                        <constraint firstItem="0yy-JK-HMJ" firstAttribute="leading" secondItem="aQu-hR-uMx" secondAttribute="leading" constant="16" id="T67-xy-vwC"/>
+                                        <constraint firstAttribute="trailing" secondItem="0yy-JK-HMJ" secondAttribute="trailing" constant="10" id="Oqf-eY-ywg"/>
+                                        <constraint firstItem="0yy-JK-HMJ" firstAttribute="leading" secondItem="aQu-hR-uMx" secondAttribute="leading" constant="10" id="T67-xy-vwC"/>
                                         <constraint firstItem="0yy-JK-HMJ" firstAttribute="top" secondItem="aQu-hR-uMx" secondAttribute="top" constant="20" id="jI6-1s-jeB"/>
                                         <constraint firstAttribute="bottom" secondItem="0yy-JK-HMJ" secondAttribute="bottom" constant="20" id="rj6-h3-RFb"/>
                                     </constraints>

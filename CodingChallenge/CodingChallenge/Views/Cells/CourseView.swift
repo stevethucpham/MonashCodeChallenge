@@ -10,7 +10,6 @@ import UIKit
 
 class CourseView: UIView {
 
-    @IBOutlet weak var containerView: UIView!
     
     @IBOutlet weak var todayLabel: UILabel!
     @IBOutlet weak var topStackView: UIStackView!
@@ -21,11 +20,7 @@ class CourseView: UIView {
     @IBOutlet private var tutorLabel: UILabel!
     @IBOutlet private var locationLabel: UILabel!
     
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    @IBOutlet weak var seperateView: UIView!
     
     func configureCell(_ model: HomeCellModel) {
         guard let model = model as? CourseCellModel else { return }
@@ -38,20 +33,17 @@ class CourseView: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupInit()
+        fatalError()
     }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupInit()
+
+    init() {
+        super.init(frame: .zero)
+        fromNib()
+        // TODO: Set gradient for the label
+        todayLabel.layer.cornerRadius = 3
+        todayLabel.layer.masksToBounds = true
     }
-    
-    func setupInit() {
-        Bundle.main.loadNibNamed("CourseView", owner: self, options: nil)
-        containerView.frame = self.bounds
-        addSubview(containerView)
-    }
-    
+
 }
 
 struct CourseCellModel: HomeCellModel {

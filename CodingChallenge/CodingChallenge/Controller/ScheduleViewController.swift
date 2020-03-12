@@ -43,45 +43,23 @@ class ScheduleViewController: UITableViewController {
         
         guard HomeSection.allCases.count > indexPath.section else { return UITableViewCell() }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeSection.cellIdentifier, for: indexPath) as? CourseCell else { return UITableViewCell() }
-        
-        
         let homeSection = HomeSection.allCases[indexPath.section]
-        
         let models = presenter.getItems(for: homeSection)
-    
         switch homeSection {
         case .parking:
-            
             let parkingModels: [ParkingCellModel] = mapCourseModel(models)
-            
-            for item in parkingModels {
-                let parkingView = ParkingView()
-                parkingView.frame = CGRect(x: 0, y: 0, width: cell.stackView.frame.width, height: 75)
-                parkingView.configureCell(item)
-                cell.stackView.addArrangedSubview(parkingView)
-            }
-            
+            cell.configureParkingView(parkingModels)
             break
         case .schedule:
+            let courseModels: [CourseCellModel] = mapCourseModel(models)
+            cell.configureCourseView(courseModels)
             break
         case .busSchedule:
+             let busModels: [BusCellModel] = mapCourseModel(models)
+             cell.configureBusView(busModels)
             break
         }
-        
-//        switch (cell, model) {
-//        case (let cell as ParkingCell, let model as ParkingCellModel):
-//            cell.configureCell(model)
-//            break
-//        case (let cell as CourseCell, let model as CourseCellModel):
-//            cell.configureCell(model)
-//            break
-//        case (let cell as BusCell, let model as BusCellModel):
-//            cell.configureCell(model)
-//            break
-//        default:
-//            return UITableViewCell()
-//        }
-//
+    
         cell.backgroundColor = .clear
         return cell
     }
@@ -93,11 +71,11 @@ class ScheduleViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let homeSection = HomeSection.allCases[section]
-        let title = UILabel(frame: CGRect(x: 20, y: 0, width: tableView.bounds.size.width, height: 30))
+        let title = UILabel(frame: CGRect(x: 12, y: 10, width: tableView.bounds.size.width, height: 20))
         title.text = homeSection.title
+        title.textColor = .darkGray
         
-        
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 50))
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
         
         headerView.backgroundColor = .clear
         headerView.addSubview(title)
@@ -139,7 +117,3 @@ func mapCourseModel<T>(_ models: [HomeCellModel]) -> [T] {
     }
 }
 
-
-func createViewForModel(_ models: [T]) -> [U] {
-    
-}
