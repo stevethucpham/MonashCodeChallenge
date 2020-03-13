@@ -10,4 +10,6 @@ import Foundation
 
 struct Color {
     static let gray = "F8F8F9"
+    static let lightPink = "ED7865"
+    static let red = "DE4D3E"
 }

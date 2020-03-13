@@ -57,7 +57,7 @@ class HomePresenter {
                 return BusCellModel (
                     departure: $0.departure,
                     arrival: $0.arrival,
-                    predictedTime: $0.predictedArrivalDate
+                    predictedDateTime: $0.predictedArrivalDate
                 )
             }
         case .parking:
@@ -72,7 +72,7 @@ class HomePresenter {
                 return CourseCellModel(
                     startTime: $0.startTime ,
                     endTime: $0.endTime ,
-                    course: $0.name ,
+                    course: $0.name + " \($0.scheduleClass)",
                     tutor: $0.lecturer ,
                     location: $0.room  + ", \($0.campus)"
                 )

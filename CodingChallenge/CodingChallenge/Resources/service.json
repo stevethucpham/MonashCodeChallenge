@@ -1,7 +1,7 @@
 {
   "schedules": [
     {
-      "start_time": "8:00 AM",
+      "start_time": "08:00 AM",
       "end_time": "10:00 AM",
       "name": "FIT1031",
       "class": "Lecture 01",
@@ -39,6 +39,11 @@
       }
   ],
   "stops" : [
+  {
+      "departure" : "Clayton",
+      "arrival": "Caufield",
+      "predicted_arrival_date": "2020-03-10T17:00:00Z"
+  },
   {
       "departure" : "Clayton",
       "arrival": "Caufield",

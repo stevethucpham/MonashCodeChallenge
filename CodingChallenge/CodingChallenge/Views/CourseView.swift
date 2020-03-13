@@ -11,7 +11,7 @@ import UIKit
 class CourseView: UIView {
 
     
-    @IBOutlet weak var todayLabel: UILabel!
+    @IBOutlet weak var todayView: UIView!
     @IBOutlet weak var topStackView: UIStackView!
     
     @IBOutlet private var startTimeLabel: UILabel!
@@ -39,9 +39,24 @@ class CourseView: UIView {
     init() {
         super.init(frame: .zero)
         fromNib()
-        // TODO: Set gradient for the label
-        todayLabel.layer.cornerRadius = 3
-        todayLabel.layer.masksToBounds = true
+        setupToDayLabel()
+    }
+    
+    private func setupToDayLabel() {
+        
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor(hexString: Color.lightPink)!.cgColor, UIColor(hexString: Color.red)!.cgColor]
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+        gradient.frame = todayView.bounds
+        todayView.layer.addSublayer(gradient)
+        
+        let label = UILabel(frame: todayView.bounds)
+        label.text = "TODAY"
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.textAlignment = .center
+        label.textColor = .white
+        todayView.addSubview(label)
     }
 
 }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6A647BEE2417A22100ED7CC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647BED2417A22100ED7CC0 /* AppDelegate.swift */; };
-		6A647BF22417A22100ED7CC0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647BF12417A22100ED7CC0 /* HomeViewController.swift */; };
 		6A647BF52417A22100ED7CC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A647BF32417A22100ED7CC0 /* Main.storyboard */; };
 		6A647BF72417A22300ED7CC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A647BF62417A22300ED7CC0 /* Assets.xcassets */; };
 		6A647BFA2417A22300ED7CC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A647BF82417A22300ED7CC0 /* LaunchScreen.storyboard */; };
@@ -23,8 +22,6 @@
 		6A647C2E2418638A00ED7CC0 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647C2D2418638A00ED7CC0 /* HomePresenter.swift */; };
 		6A647C31241864C900ED7CC0 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647C2F241864C900ED7CC0 /* CourseView.swift */; };
 		6A647C35241864E800ED7CC0 /* ParkingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647C33241864E800ED7CC0 /* ParkingView.swift */; };
-		6A647C3C2418654C00ED7CC0 /* CourseHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647C3B2418654C00ED7CC0 /* CourseHeaderView.swift */; };
-		6A647C3E2418655C00ED7CC0 /* CourseHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A647C3D2418655C00ED7CC0 /* CourseHeaderView.xib */; };
 		6A647C412418757D00ED7CC0 /* BusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647C3F2418757D00ED7CC0 /* BusView.swift */; };
 		6A647C4424188C8000ED7CC0 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647C4324188C8000ED7CC0 /* DateExtension.swift */; };
 		6A647C462418ABAA00ED7CC0 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A647C452418ABAA00ED7CC0 /* CardView.swift */; };
@@ -48,7 +45,6 @@
 /* Begin PBXFileReference section */
 		6A647BEA2417A22100ED7CC0 /* CodingChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodingChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A647BED2417A22100ED7CC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6A647BF12417A22100ED7CC0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6A647BF42417A22100ED7CC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6A647BF62417A22300ED7CC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A647BF92417A22300ED7CC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -66,8 +62,6 @@
 		6A647C2D2418638A00ED7CC0 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		6A647C2F241864C900ED7CC0 /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
 		6A647C33241864E800ED7CC0 /* ParkingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingView.swift; sourceTree = "<group>"; };
-		6A647C3B2418654C00ED7CC0 /* CourseHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseHeaderView.swift; sourceTree = "<group>"; };
-		6A647C3D2418655C00ED7CC0 /* CourseHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseHeaderView.xib; sourceTree = "<group>"; };
 		6A647C3F2418757D00ED7CC0 /* BusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusView.swift; sourceTree = "<group>"; };
 		6A647C4324188C8000ED7CC0 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		6A647C452418ABAA00ED7CC0 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -153,7 +147,6 @@
 		6A647C102417A2DF00ED7CC0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				6A647BF12417A22100ED7CC0 /* HomeViewController.swift */,
 				6A6D68682419C3BD009124A3 /* ScheduleViewController.swift */,
 			);
 			path = Controller;
@@ -194,13 +187,14 @@
 		6A647C212418438700ED7CC0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6A647C22241843B100ED7CC0 /* NavigationTitleView.swift */,
-				6A647C3B2418654C00ED7CC0 /* CourseHeaderView.swift */,
-				6A647C3D2418655C00ED7CC0 /* CourseHeaderView.xib */,
 				6A647C2C2418619E00ED7CC0 /* Cells */,
 				6A647C452418ABAA00ED7CC0 /* CardView.swift */,
+				6A647C22241843B100ED7CC0 /* NavigationTitleView.swift */,
+				6A647C2F241864C900ED7CC0 /* CourseView.swift */,
 				6AEA46122419F9A800515A98 /* CourseView.xib */,
+				6A647C33241864E800ED7CC0 /* ParkingView.swift */,
 				6AEA46182419FB7F00515A98 /* ParkingView.xib */,
+				6A647C3F2418757D00ED7CC0 /* BusView.swift */,
 				6AEA461A2419FCF900515A98 /* BusView.xib */,
 			);
 			path = Views;
@@ -228,9 +222,6 @@
 		6A647C2C2418619E00ED7CC0 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				6A647C2F241864C900ED7CC0 /* CourseView.swift */,
-				6A647C33241864E800ED7CC0 /* ParkingView.swift */,
-				6A647C3F2418757D00ED7CC0 /* BusView.swift */,
 				6AEA46142419FB2300515A98 /* CourseCell.swift */,
 			);
 			path = Cells;
@@ -320,7 +311,6 @@
 				6A647BFA2417A22300ED7CC0 /* LaunchScreen.storyboard in Resources */,
 				6AEA461B2419FCF900515A98 /* BusView.xib in Resources */,
 				6A647C142417C74F00ED7CC0 /* service.json in Resources */,
-				6A647C3E2418655C00ED7CC0 /* CourseHeaderView.xib in Resources */,
 				6AEA46132419F9A800515A98 /* CourseView.xib in Resources */,
 				6A647BF72417A22300ED7CC0 /* Assets.xcassets in Resources */,
 				6A647BF52417A22100ED7CC0 /* Main.storyboard in Resources */,
@@ -350,10 +340,8 @@
 				6A647C2E2418638A00ED7CC0 /* HomePresenter.swift in Sources */,
 				6A647C172417C7A700ED7CC0 /* DataService.swift in Sources */,
 				6A647C2924185A2200ED7CC0 /* Constant.swift in Sources */,
-				6A647BF22417A22100ED7CC0 /* HomeViewController.swift in Sources */,
 				6A647C35241864E800ED7CC0 /* ParkingView.swift in Sources */,
 				6A647C23241843B100ED7CC0 /* NavigationTitleView.swift in Sources */,
-				6A647C3C2418654C00ED7CC0 /* CourseHeaderView.swift in Sources */,
 				6A647C192417C85C00ED7CC0 /* Schedule.swift in Sources */,
 				6A647C412418757D00ED7CC0 /* BusView.swift in Sources */,
 				6A647C462418ABAA00ED7CC0 /* CardView.swift in Sources */,

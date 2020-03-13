@@ -71,11 +71,11 @@ class ScheduleViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let homeSection = HomeSection.allCases[section]
-        let title = UILabel(frame: CGRect(x: 12, y: 10, width: tableView.bounds.size.width, height: 20))
+        let title = UILabel(frame: CGRect(x: 15, y: 20, width: tableView.bounds.size.width, height: 20))
         title.text = homeSection.title
         title.textColor = .darkGray
         
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 0))
         
         headerView.backgroundColor = .clear
         headerView.addSubview(title)

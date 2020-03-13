@@ -12,12 +12,21 @@ class CourseCell: UITableViewCell {
 
     @IBOutlet weak var stackView: UIStackView!
     
+    private var parkingViewModels: [ParkingCellModel]?
+    private var busCellModels: [BusCellModel]?
+    private var courseCellModels: [CourseCellModel]?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
     func configureParkingView(_ models: [ParkingCellModel]) {
+        
+        if let cellModels = parkingViewModels, cellModels.count == models.count {
+            return
+        }
+        parkingViewModels = models
         for (key, item) in models.enumerated() {
             let parkingView = ParkingView()
             parkingView.frame = CGRect(x: 0, y: 0, width: stackView.frame.width, height: 75)
@@ -28,6 +37,11 @@ class CourseCell: UITableViewCell {
     }
     
     func configureBusView(_ models: [BusCellModel]) {
+        if let cellModels = busCellModels, cellModels.count == models.count {
+            return
+        }
+        busCellModels = models
+        
         for (key, item) in models.enumerated() {
             let busView = BusView()
             busView.frame = CGRect(x: 0, y: 0, width: stackView.frame.width, height: 75)
@@ -39,6 +53,12 @@ class CourseCell: UITableViewCell {
     
     
     func configureCourseView(_ models: [CourseCellModel]) {
+        
+        if let cellModels = courseCellModels, cellModels.count == models.count {
+                   return
+               }
+        courseCellModels = models
+        
         for (key, item) in models.enumerated() {
             let courseView = CourseView()
             courseView.frame = CGRect(x: 0, y: 0, width: stackView.frame.width, height: 75)

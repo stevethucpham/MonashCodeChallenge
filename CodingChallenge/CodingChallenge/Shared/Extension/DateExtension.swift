@@ -11,11 +11,11 @@ import Foundation
 // MARK: Date Extension
 extension Date {
     
-    init(_ timeString: String) {
+    init(_ dateTimeString: String) {
         let dateStringFormatter = DateFormatter()
-        dateStringFormatter.dateFormat = "HH:mm"
+        dateStringFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
-        let date = dateStringFormatter.date(from: timeString)!
+        let date = dateStringFormatter.date(from: dateTimeString)!
         self.init(timeInterval:0, since:date)
     }
     
@@ -48,9 +48,9 @@ extension Date {
         let hours = Int(interval / 3600)
         let minutes = Int(interval.truncatingRemainder(dividingBy: 3600) / 60)
         if hours != 0 {
-            return "\(hours.of("hour")) \(minutes.of("minute"))"
+            return "\(hours.of("hour")) \(minutes.of("min"))"
         } else if minutes != 0 {
-            return "\(minutes.of("minute"))"
+            return "\(minutes.of("min"))"
         } else {
             return "now"
         }

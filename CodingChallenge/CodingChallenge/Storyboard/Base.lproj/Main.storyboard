@@ -11,7 +11,7 @@
         <scene sceneID="Iaz-rL-DGs">
             <objects>
                 <tableViewController id="M4x-G8-A3m" customClass="ScheduleViewController" customModule="CodingChallenge" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vfe-fa-H8D">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vfe-fa-H8D">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.94498330350000004" green="0.94508403539999997" blue="0.94906729460000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -24,10 +24,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yy-JK-HMJ" customClass="CardView" customModule="CodingChallenge" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="20" width="394" height="4"/>
+                                            <rect key="frame" x="12" y="20" width="390" height="4"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="o5Y-AE-fII">
-                                                    <rect key="frame" x="0.0" y="5" width="394" height="0.0"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="o5Y-AE-fII">
+                                                    <rect key="frame" x="0.0" y="5" width="390" height="0.0"/>
                                                 </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -40,8 +40,8 @@
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="0yy-JK-HMJ" secondAttribute="trailing" constant="10" id="Oqf-eY-ywg"/>
-                                        <constraint firstItem="0yy-JK-HMJ" firstAttribute="leading" secondItem="aQu-hR-uMx" secondAttribute="leading" constant="10" id="T67-xy-vwC"/>
+                                        <constraint firstAttribute="trailing" secondItem="0yy-JK-HMJ" secondAttribute="trailing" constant="12" id="Oqf-eY-ywg"/>
+                                        <constraint firstItem="0yy-JK-HMJ" firstAttribute="leading" secondItem="aQu-hR-uMx" secondAttribute="leading" constant="12" id="T67-xy-vwC"/>
                                         <constraint firstItem="0yy-JK-HMJ" firstAttribute="top" secondItem="aQu-hR-uMx" secondAttribute="top" constant="20" id="jI6-1s-jeB"/>
                                         <constraint firstAttribute="bottom" secondItem="0yy-JK-HMJ" secondAttribute="bottom" constant="20" id="rj6-h3-RFb"/>
                                     </constraints>
