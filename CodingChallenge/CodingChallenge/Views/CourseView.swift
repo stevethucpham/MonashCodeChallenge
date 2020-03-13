@@ -51,6 +51,7 @@ class CourseView: UIView {
         gradient.frame = todayView.bounds
         todayView.layer.addSublayer(gradient)
         
+        
         let label = UILabel(frame: todayView.bounds)
         label.text = "TODAY"
         label.font = UIFont.boldSystemFont(ofSize: 20)
