@@ -20,9 +20,8 @@ class BusView: UIView {
     func configureCell(_ model: BusCellModel) {
         departureLabel.text = model.departure
         arrivalLabel.text = model.arrival
-        
-        let date = Date(model.predictedDateTime)
-        let timeDifference = date.timeDifference(since: Date())
+    
+        let timeDifference = model.predictedDateTime.timeDifference(since: Date())
         predictedTimeLabel.text = timeDifference
     }
     
@@ -40,6 +39,6 @@ class BusView: UIView {
 struct BusCellModel: HomeCellModel {
     var departure: String
     var arrival: String
-    var predictedDateTime: String
+    var predictedDateTime: Date
     
 }

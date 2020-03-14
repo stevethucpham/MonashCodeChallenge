@@ -14,26 +14,27 @@ protocol HomeCellModel {
 
 // MARK: - Timetable
 struct Timetable: Decodable {
+    let week: Int
+    let student: Student
     let schedules: [Schedule]
     let parkings: [Parking]
     let stops: [Stop]
+}
 
-    enum CodingKeys: String, CodingKey {
-        case schedules
-        case parkings
-        case stops
-    }
+// MARK: - Student
+struct Student: Codable {
+    let id, name: String
 }
 
 // MARK: - Schedule
 struct Schedule: Decodable {
-    let startTime, endTime, name, scheduleClass: String
+    let startTime, endTime, course, scheduleClass: String
     let lecturer, room, campus: String
 
     enum CodingKeys: String, CodingKey {
         case startTime = "start_time"
         case endTime = "end_time"
-        case name
+        case course
         case scheduleClass = "class"
         case lecturer, room, campus
     }

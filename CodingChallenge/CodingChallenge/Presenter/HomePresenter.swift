@@ -15,7 +15,7 @@ enum HomeSection: CaseIterable {
     
     var title: String {
         switch self {
-        
+            
         case .parking:
             return "Available car parks"
         case .busSchedule:
@@ -35,8 +35,9 @@ protocol HomeDisplay: class {
 }
 
 class HomePresenter {
-
+    
     let timeTable: Timetable = load("service.json")
+    let systemService: SystemDerived
     
     weak var display: HomeDisplay? {
         didSet {
@@ -44,20 +45,29 @@ class HomePresenter {
         }
     }
     
+    init(systemService: SystemDerived = SystemService()) {
+        self.systemService = systemService
+    }
+    
     private func viewInit() {
         guard let display = display else { return }
-        display.set(name: .hey + "Kier", date: "17/05 Tuesday, Week 8")
+        
+        display.set(name: .hey + timeTable.student.name, date: "\(systemService.now.convertToString(dateFormat: "dd/MM EEEE")), Week \(timeTable.week)")
     }
     
     
     func getItems(for section: HomeSection) -> [HomeCellModel] {
         switch section {
         case .busSchedule:
-            return timeTable.stops.map {
+            return timeTable.stops
+                .filter {
+                    systemService.now < Date($0.predictedArrivalDate, dateFormat: "yyyy-MM-dd'T'HH:mm:ss")
+            }
+            .map {
                 return BusCellModel (
                     departure: $0.departure,
                     arrival: $0.arrival,
-                    predictedDateTime: $0.predictedArrivalDate
+                    predictedDateTime: Date($0.predictedArrivalDate, dateFormat: "yyyy-MM-dd'T'HH:mm:ss")
                 )
             }
         case .parking:
@@ -70,9 +80,9 @@ class HomePresenter {
         case .schedule:
             return timeTable.schedules.map {
                 return CourseCellModel(
-                    startTime: $0.startTime ,
-                    endTime: $0.endTime ,
-                    course: $0.name + " \($0.scheduleClass)",
+                    startTime: Date($0.startTime, dateFormat: "yyyy-MM-dd'T'HH:mm:ss"),
+                    endTime: Date($0.endTime, dateFormat: "yyyy-MM-dd'T'HH:mm:ss") ,
+                    course: $0.course + " \($0.scheduleClass)",
                     tutor: $0.lecturer ,
                     location: $0.room  + ", \($0.campus)"
                 )
@@ -87,11 +97,13 @@ class HomePresenter {
     func getNumberOfRows(for type: HomeSection) -> Int {
         switch type {
         case .schedule:
-            return timeTable.schedules.count
+            return timeTable.schedules.count > 0 ? 1 : 0
         case .parking:
-            return timeTable.parkings.count
+            return timeTable.parkings.count > 0 ? 1 : 0
         case .busSchedule:
-            return timeTable.stops.count
+            return timeTable.stops.filter {
+                systemService.now < Date($0.predictedArrivalDate, dateFormat: "yyyy-MM-dd'T'HH:mm:ss")
+            }.count > 0 ? 1 : 0
         }
     }
 }

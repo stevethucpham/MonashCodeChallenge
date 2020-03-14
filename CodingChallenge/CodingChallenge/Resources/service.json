@@ -1,53 +1,58 @@
 {
-  "schedules": [
-    {
-      "start_time": "08:00 AM",
-      "end_time": "10:00 AM",
-      "name": "FIT1031",
-      "class": "Lecture 01",
-      "lecturer": "Arun",
-      "room": "S4",
-      "campus": "13 College Walk, Clayton"
+    "week" : 8,
+    "student" : {
+        "id": "305491",
+        "name": "Kier"
     },
-    {
-      "start_time": "10:30 AM",
-      "end_time": "12:30 PM",
-      "name": "FIT1031",
-      "class": "Lecture 01",
-      "lecturer": "Arun",
-      "room": "S4",
-      "campus": "13 College Walk, Clayton"
-    },
-    {
-      "start_time": "18:00 PM",
-      "end_time": "20:00 PM",
-      "name": "FIT1031",
-      "class": "Lecture 01",
-      "lecturer": "Arun",
-      "room": "S4",
-      "campus": "13 College Walk, Clayton"
-    }
-  ],
-  "parkings": [
-      {
-          "name": "Clayton live feed",
-          "slot": 645
-      },
-      {
-          "name": "Caufield live feed",
-          "slot": 3000
-      }
-  ],
-  "stops" : [
-  {
-      "departure" : "Clayton",
-      "arrival": "Caufield",
-      "predicted_arrival_date": "2020-03-10T17:00:00Z"
-  },
-  {
-      "departure" : "Clayton",
-      "arrival": "Caufield",
-      "predicted_arrival_date": "2020-03-10T17:00:00Z"
-  }
-  ]
+    "schedules": [
+        {
+            "start_time": "2020-03-13T10:00:00",
+            "end_time": "2020-03-13T12:00:00",
+            "course": "FIT1031",
+            "class": "Lecture 01",
+            "lecturer": "Arun",
+            "room": "S4",
+            "campus": "13 College Walk, Clayton"
+        },
+        {
+            "start_time": "2020-03-13T12:30:00",
+            "end_time": "2020-03-13T13:30:00",
+            "course": "FIT1031",
+            "class": "Lab 01",
+            "lecturer": "Arun",
+            "room": "S4",
+            "campus": "13 College Walk, Clayton"
+        },
+        {
+            "start_time": "2020-03-13T15:00:00",
+            "end_time": "2020-03-13T16:30:00",
+            "course": "FIT1031",
+            "class": "Workshop 01",
+            "lecturer": "Arun",
+            "room": "S4",
+            "campus": "13 College Walk, Clayton"
+        }
+    ],
+    "parkings": [
+        {
+            "name": "Clayton live feed",
+            "slot": 645
+        },
+        {
+            "name": "Caufield live feed",
+            "slot": 10
+        }
+    ],
+    "stops" : [
+        {
+            "departure" : "Clayton",
+            "arrival": "Caufield",
+            "predicted_arrival_date": "2020-03-13T23:47:05"
+        },
+        {
+            "departure" : "Clayton",
+            "arrival": "CBD",
+            "predicted_arrival_date": "2020-03-13T23:09:05"
+        }
+    ]
 }

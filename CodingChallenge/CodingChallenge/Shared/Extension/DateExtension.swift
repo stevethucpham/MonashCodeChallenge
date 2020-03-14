@@ -8,12 +8,13 @@
 
 import Foundation
 
+
 // MARK: Date Extension
 extension Date {
     
-    init(_ dateTimeString: String) {
+    init(_ dateTimeString: String, dateFormat: String) {
         let dateStringFormatter = DateFormatter()
-        dateStringFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateStringFormatter.dateFormat = dateFormat
         dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
         let date = dateStringFormatter.date(from: dateTimeString)!
         self.init(timeInterval:0, since:date)

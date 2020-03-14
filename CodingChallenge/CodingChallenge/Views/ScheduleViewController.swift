@@ -18,9 +18,6 @@ class ScheduleViewController: UITableViewController {
         setupNavigationView()
         presenter.display = self
 
-        tableView.tableFooterView = UIView()
-        tableView.estimatedRowHeight = 600
-        tableView.rowHeight = UITableView.automaticDimension
     }
 
 
@@ -32,13 +29,20 @@ class ScheduleViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        guard HomeSection.allCases.count > section else { return 0 }
-//        let homeSection = HomeSection.allCases[section]
-//        return presenter.getNumberOfRows(for: homeSection)
-        return 1
+        guard HomeSection.allCases.count > section else { return 0 }
+        let homeSection = HomeSection.allCases[section]
+        return presenter.getNumberOfRows(for: homeSection)
     }
 
-
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard HomeSection.allCases.count > section else { return 0 }
+        let homeSection = HomeSection.allCases[section]
+        if presenter.getNumberOfRows(for: homeSection) == 0 || homeSection == .schedule {
+            return 0
+        }
+        return 30
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard HomeSection.allCases.count > indexPath.section else { return UITableViewCell() }
@@ -63,14 +67,12 @@ class ScheduleViewController: UITableViewController {
         cell.backgroundColor = .clear
         return cell
     }
-
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let homeSection = HomeSection.allCases[section]
-        return homeSection.title
-    }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let homeSection = HomeSection.allCases[section]
+        if presenter.getNumberOfRows(for: homeSection) == 0 {
+            return nil
+        }
         let title = UILabel(frame: CGRect(x: 15, y: 20, width: tableView.bounds.size.width, height: 20))
         title.text = homeSection.title
         title.textColor = .darkGray
@@ -87,7 +89,6 @@ class ScheduleViewController: UITableViewController {
         return UITableView.automaticDimension
     }
 
-
 }
 
 // MARK: Private methods
@@ -99,6 +100,12 @@ extension ScheduleViewController {
         navigationController?.navigationBar.barTintColor = UIColor(hexString: Color.gray)
     }
     
+    private func setupTableView() {
+        tableView.tableFooterView = UIView()
+        tableView.estimatedRowHeight = 600
+        tableView.rowHeight = UITableView.automaticDimension
+    }
+    
 }
 
 extension ScheduleViewController: HomeDisplay {
@@ -106,7 +113,6 @@ extension ScheduleViewController: HomeDisplay {
     func set(name: String, date: String) {
         navigationView.title = name
         navigationView.subTitle = date
-
     }
 }
 

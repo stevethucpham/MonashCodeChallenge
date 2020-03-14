@@ -13,19 +13,18 @@ class CourseView: UIView {
     
     @IBOutlet weak var todayView: UIView!
     @IBOutlet weak var topStackView: UIStackView!
-    
     @IBOutlet private var startTimeLabel: UILabel!
     @IBOutlet private var endTimeLabel: UILabel!
     @IBOutlet private var courseLabel: UILabel!
     @IBOutlet private var tutorLabel: UILabel!
     @IBOutlet private var locationLabel: UILabel!
-    
     @IBOutlet weak var seperateView: UIView!
     
     func configureCell(_ model: HomeCellModel) {
         guard let model = model as? CourseCellModel else { return }
-        startTimeLabel.text = model.startTime
-        endTimeLabel.text = model.endTime
+        startTimeLabel.text =
+            model.startTime.convertToString(dateFormat: "h:mm a")
+        endTimeLabel.text = model.endTime.convertToString(dateFormat: "h:mm a")
         courseLabel.text = model.course
         tutorLabel.text = model.tutor
         locationLabel.text = model.location
@@ -54,17 +53,18 @@ class CourseView: UIView {
         
         let label = UILabel(frame: todayView.bounds)
         label.text = "TODAY"
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textAlignment = .center
         label.textColor = .white
         todayView.addSubview(label)
+        todayView.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMaxYCorner] , radius: 4)
     }
 
 }
 
 struct CourseCellModel: HomeCellModel {
-    var startTime: String
-    var endTime: String
+    var startTime: Date
+    var endTime: Date
     var course: String
     var tutor: String
     var location: String

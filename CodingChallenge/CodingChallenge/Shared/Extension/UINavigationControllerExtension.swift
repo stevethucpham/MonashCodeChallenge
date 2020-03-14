@@ -32,6 +32,7 @@ extension UINavigationController {
     }
 }
 
+
 extension UIView {
     func roundCorners(corners: CACornerMask?, radius: CGFloat) {
         self.layer.cornerRadius = CGFloat(radius)
@@ -43,14 +44,6 @@ extension UIView {
         
         self.layer.maskedCorners = [corners]
         
-        
-//        let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: radius)
-//        
-//        layer.masksToBounds = false
-//        layer.shadowColor = UIColor.black.cgColor
-//        layer.shadowOffset = CGSize(width: 0.0, height: 5)
-//        layer.shadowOpacity = 1
-//        layer.shadowPath = shadowPath.cgPath
     }
     
     @discardableResult
