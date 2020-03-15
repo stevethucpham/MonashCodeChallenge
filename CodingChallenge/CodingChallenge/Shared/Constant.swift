@@ -13,3 +13,7 @@ struct Color {
     static let lightPink = "ED7865"
     static let red = "DE4D3E"
 }
+
+struct Constants {
+    static let scheduleURL = "http://demo3299092.mockable.io/schedules"
+}

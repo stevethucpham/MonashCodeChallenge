@@ -17,7 +17,6 @@ class ScheduleViewController: UITableViewController {
         super.viewDidLoad()
         setupNavigationView()
         presenter.display = self
-
     }
 
 
@@ -109,6 +108,16 @@ extension ScheduleViewController {
 }
 
 extension ScheduleViewController: HomeDisplay {
+    func errorDisplay(message: String) {
+        DispatchQueue.main.async {
+            self.alert(title: "Error", message: message, okButtonTitle: "Ok")
+        }
+    }
+    
+    func reloadTable() {
+        self.tableView.reloadData()
+    }
+    
     
     func set(name: String, date: String) {
         navigationView.title = name

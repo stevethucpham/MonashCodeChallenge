@@ -21,7 +21,9 @@ class BusView: UIView {
         departureLabel.text = model.departure
         arrivalLabel.text = model.arrival
     
-        let timeDifference = model.predictedDateTime.timeDifference(since: Date())
+        let systemService = SystemService()
+        
+        let timeDifference = model.predictedDateTime.timeDifference(since: systemService.now)
         predictedTimeLabel.text = timeDifference
     }
     

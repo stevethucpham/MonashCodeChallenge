@@ -31,13 +31,17 @@ enum HomeSection: CaseIterable {
 
 protocol HomeDisplay: class {
     func set(name: String, date: String)
+    func errorDisplay(message: String)
+    func reloadTable()
     
 }
 
 class HomePresenter {
     
-    let timeTable: Timetable = load("service.json")
+    //    let timeTable: Timetable = load("service.json")
+    var timeTable: Timetable?
     let systemService: SystemDerived
+    let apiRequest: APIRequestType
     
     weak var display: HomeDisplay? {
         didSet {
@@ -45,23 +49,43 @@ class HomePresenter {
         }
     }
     
-    init(systemService: SystemDerived = SystemService()) {
+    init(systemService: SystemDerived = SystemService(), apiService: APIRequestType = APIRequest()) {
         self.systemService = systemService
+        self.apiRequest = apiService
     }
     
     private func viewInit() {
-        guard let display = display else { return }
-        
-        display.set(name: .hey + timeTable.student.name, date: "\(systemService.now.convertToString(dateFormat: "dd/MM EEEE")), Week \(timeTable.week)")
+        loadData()
     }
     
     
+    func loadData() {
+        guard let display = display else { return }
+        apiRequest.getSchedules { [weak self] (result) in
+            switch result {
+            case .success(let timetable):
+                guard let strongSelf = self, let timeTable = timetable else { return }
+                strongSelf.timeTable = timeTable
+                display.reloadTable()
+                
+                display.set(name: .hey + timeTable.student.name, date: "\(strongSelf.systemService.now.convertToString(dateFormat: "dd/MM EEEE")), Week \(timeTable.week)")
+                break
+            case .failure(let error):
+                display.errorDisplay(message: error?.localizedDescription ?? .unknownError)
+                break
+            }
+        }
+    }
+    
     func getItems(for section: HomeSection) -> [HomeCellModel] {
+        guard let timeTable = timeTable else {
+            return []
+        }
         switch section {
         case .busSchedule:
             return timeTable.stops
                 .filter {
-                    systemService.now < Date($0.predictedArrivalDate, dateFormat: "yyyy-MM-dd'T'HH:mm:ss")
+                    systemService.now <= Date($0.predictedArrivalDate, dateFormat: "yyyy-MM-dd'T'HH:mm:ss")
             }
             .map {
                 return BusCellModel (
@@ -78,7 +102,12 @@ class HomePresenter {
                 )
             }
         case .schedule:
-            return timeTable.schedules.map {
+            return timeTable.schedules
+                .filter {
+                    systemService.now <= Date($0.startTime, dateFormat: "yyyy-MM-dd'T'HH:mm:ss")
+                        && Calendar.current.isDate(systemService.now, inSameDayAs:Date($0.startTime, dateFormat: "yyyy-MM-dd'T'HH:mm:ss"))
+                }
+                .map {
                 return CourseCellModel(
                     startTime: Date($0.startTime, dateFormat: "yyyy-MM-dd'T'HH:mm:ss"),
                     endTime: Date($0.endTime, dateFormat: "yyyy-MM-dd'T'HH:mm:ss") ,
@@ -86,7 +115,7 @@ class HomePresenter {
                     tutor: $0.lecturer ,
                     location: $0.room  + ", \($0.campus)"
                 )
-            }
+            }.first(elementCount: 3)
         }
     }
     
@@ -95,6 +124,9 @@ class HomePresenter {
     }
     
     func getNumberOfRows(for type: HomeSection) -> Int {
+        guard let timeTable = timeTable else {
+            return 0
+        }
         switch type {
         case .schedule:
             return timeTable.schedules.count > 0 ? 1 : 0
@@ -102,7 +134,7 @@ class HomePresenter {
             return timeTable.parkings.count > 0 ? 1 : 0
         case .busSchedule:
             return timeTable.stops.filter {
-                systemService.now < Date($0.predictedArrivalDate, dateFormat: "yyyy-MM-dd'T'HH:mm:ss")
+                systemService.now <= Date($0.predictedArrivalDate, dateFormat: "yyyy-MM-dd'T'HH:mm:ss")
             }.count > 0 ? 1 : 0
         }
     }
@@ -110,5 +142,13 @@ class HomePresenter {
 
 private extension String {
     
+    static let unknownError = NSLocalizedString("Something went wrong", comment: "Unknown error message")
     static let hey = NSLocalizedString("Hey, ", comment: "Student welcome")
+}
+
+private extension Array {
+    func first(elementCount: Int) -> Array {
+          let min = Swift.min(elementCount, count)
+          return Array(self[0..<min])
+    }
 }
