@@ -18,11 +18,11 @@ The JSON will include the information `week`, `student`, `schedules`, `parkings`
 
 | Fields           | Description|           
 | -------------- |:-------------:|
-| week            |  the current week    | 
-| student        |  student information |  
-| schedules    |  list of course schedules|   
-| parkings      |   list of course parking places  |   
-| stops      |   list of course stops  |   
+| week            | the current week    | 
+| student        | student information |  
+| schedules    | list of course schedules|   
+| parkings      | list of course parking places  |   
+| stops           | list of course stops  |   
 ```
 {
     "week" : 8,
