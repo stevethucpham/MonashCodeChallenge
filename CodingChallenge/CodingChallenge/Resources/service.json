@@ -31,6 +31,15 @@
             "lecturer": "Arun",
             "room": "S4",
             "campus": "13 College Walk, Clayton"
+        },
+        {
+            "start_time": "2020-03-13T17:00:00",
+            "end_time": "2020-03-13T18:00:00",
+            "course": "FIT1032",
+            "class": "Lecture 01",
+            "lecturer": "David",
+            "room": "S2",
+            "campus": "13 College Walk, Clayton"
         }
     ],
     "parkings": [
@@ -47,12 +56,17 @@
         {
             "departure" : "Clayton",
             "arrival": "Caufield",
-            "predicted_arrival_date": "2020-03-13T23:47:05"
+            "predicted_arrival_date": "2020-03-13T06:04:05"
+        },
+        {
+            "departure" : "Clayton",
+            "arrival": "Caufield",
+            "predicted_arrival_date": "2020-03-13T07:07:05"
         },
         {
             "departure" : "Clayton",
             "arrival": "CBD",
-            "predicted_arrival_date": "2020-03-13T23:09:05"
+            "predicted_arrival_date": "2020-03-13T08:08:05"
         }
     ]
 }
