@@ -12,8 +12,13 @@ class CourseCell: UITableViewCell {
 
     @IBOutlet weak var stackView: UIStackView!
     
+    /// List of parking cell models
     private var parkingViewModels: [ParkingCellModel]?
+    
+    /// List of bus cell models
     private var busCellModels: [BusCellModel]?
+    
+    /// List of course cell models
     private var courseCellModels: [CourseCellModel]?
     
     override func awakeFromNib() {
@@ -21,6 +26,9 @@ class CourseCell: UITableViewCell {
         // Initialization code
     }
     
+    
+    /// Setup the parking view inside the cell
+    /// - Parameter models: ParkingCellModel list
     func configureParkingView(_ models: [ParkingCellModel]) {
         
         if let cellModels = parkingViewModels, cellModels.count == models.count {
@@ -36,6 +44,9 @@ class CourseCell: UITableViewCell {
         }
     }
     
+    
+    /// Setup the bus view inside the cell
+    /// - Parameter models: BusCellModel list
     func configureBusView(_ models: [BusCellModel]) {
         if let cellModels = busCellModels, cellModels.count == models.count {
             return
@@ -51,7 +62,8 @@ class CourseCell: UITableViewCell {
         }
     }
     
-    
+    /// Setup the course view inside the cell
+    /// - Parameter models: CourseCellModel list
     func configureCourseView(_ models: [CourseCellModel]) {
         
         if let cellModels = courseCellModels, cellModels.count == models.count {

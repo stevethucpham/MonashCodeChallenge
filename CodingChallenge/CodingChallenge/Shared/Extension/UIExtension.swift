@@ -34,6 +34,11 @@ extension UINavigationController {
 
 
 extension UIView {
+    
+    /// Set corner radius for the view
+    /// - Parameters:
+    ///   - corners: the corner that needs to set a radisu
+    ///   - radius: radius value
     func roundCorners(corners: CACornerMask?, radius: CGFloat) {
         self.layer.cornerRadius = CGFloat(radius)
         self.clipsToBounds = true
@@ -41,11 +46,9 @@ extension UIView {
         guard let corners = corners else {
             return
         }
-        
         self.layer.maskedCorners = [corners]
-        
     }
-    
+    /// Loading the view from nib
     @discardableResult
     func fromNib<T: UIView>() -> T? {
         guard let view = Bundle.main.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)?[0] as? T else {

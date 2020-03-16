@@ -30,6 +30,8 @@ class NavigationTitleView: UIView {
         return label
     }()
     
+    
+    /// Navigation view title
     var title: String? {
         get {
             return titleLabel.text
@@ -39,6 +41,7 @@ class NavigationTitleView: UIView {
         }
     }
     
+    /// Navigation view subtitle
     var subTitle: String? {
         get {
             return subTitleLabel.text

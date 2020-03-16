@@ -14,6 +14,9 @@ class ParkingView: UIView {
     @IBOutlet private var parkingSlotLabel: UILabel!
     @IBOutlet weak var seperatorView: UIView!
     
+    
+    /// Configure cell with the cell model
+    /// - Parameter model: ParkingCellModel
     func configureCell(_ model: ParkingCellModel) {
         parkingLabel.text = model.parkingName
         parkingSlotLabel.text = "\(model.parkingSlots)"
@@ -32,7 +35,11 @@ class ParkingView: UIView {
 
 
 struct ParkingCellModel: HomeCellModel {
+    
+    /// Parking name
     var parkingName: String
+    
+    /// Number of parking slots
     var parkingSlots: Int
 }
 

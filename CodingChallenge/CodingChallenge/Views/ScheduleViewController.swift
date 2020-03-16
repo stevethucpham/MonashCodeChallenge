@@ -21,7 +21,6 @@ class ScheduleViewController: UITableViewController {
 
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
    
         return presenter.getNumberOfSections()
@@ -33,14 +32,6 @@ class ScheduleViewController: UITableViewController {
         return presenter.getNumberOfRows(for: homeSection)
     }
 
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        guard HomeSection.allCases.count > section else { return 0 }
-        let homeSection = HomeSection.allCases[section]
-        if presenter.getNumberOfRows(for: homeSection) == 0 || homeSection == .schedule {
-            return 0
-        }
-        return 30
-    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -65,6 +56,17 @@ class ScheduleViewController: UITableViewController {
     
         cell.backgroundColor = .clear
         return cell
+    }
+    
+    // MARK: TableView delegate
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard HomeSection.allCases.count > section else { return 0 }
+        let homeSection = HomeSection.allCases[section]
+        if presenter.getNumberOfRows(for: homeSection) == 0 || homeSection == .schedule {
+            return 0
+        }
+        return 30
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -106,7 +108,7 @@ extension ScheduleViewController {
     }
     
 }
-
+// MARK: HomeDisplay binding UI 
 extension ScheduleViewController: HomeDisplay {
     func errorDisplay(message: String) {
         DispatchQueue.main.async {

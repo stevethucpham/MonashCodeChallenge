@@ -29,20 +29,34 @@ enum HomeSection: CaseIterable {
     
 }
 
+
+/// Delegate to bind UI to view controller
 protocol HomeDisplay: class {
+    
+    /// Set the value for navigation title view
+    /// - Parameters:
+    ///   - name: Student name
+    ///   - date: Current date
     func set(name: String, date: String)
+    
+    /// Display error messag if something went wrong
+    /// - Parameter message: Error message
     func errorDisplay(message: String)
+    
+    /// Reload the table callback
     func reloadTable()
     
 }
 
 class HomePresenter {
     
-    //    let timeTable: Timetable = load("service.json")
+    /// time table of the student
     var timeTable: Timetable?
+    /// system service
     let systemService: SystemDerived
+    /// api reuqest service
     let apiRequest: APIRequestType
-    
+    /// Display delegate
     weak var display: HomeDisplay? {
         didSet {
             viewInit()
@@ -67,7 +81,6 @@ class HomePresenter {
                 guard let strongSelf = self, let timeTable = timetable else { return }
                 strongSelf.timeTable = timeTable
                 display.reloadTable()
-                
                 display.set(name: .hey + timeTable.student.name, date: "\(strongSelf.systemService.now.convertToString(dateFormat: "dd/MM EEEE")), Week \(timeTable.week)")
                 break
             case .failure(let error):
@@ -77,6 +90,8 @@ class HomePresenter {
         }
     }
     
+    /// Get items for section
+    /// - Parameter section: HomeSection
     func getItems(for section: HomeSection) -> [HomeCellModel] {
         guard let timeTable = timeTable else {
             return []
@@ -85,13 +100,13 @@ class HomePresenter {
         case .busSchedule:
             return timeTable.stops
                 .filter {
-                    systemService.now <= Date($0.predictedArrivalDate, dateFormat: "yyyy-MM-dd'T'HH:mm:ss")
+                    systemService.now <= $0.predictedArrivalDate.dateInISOformat()
             }
             .map {
                 return BusCellModel (
                     departure: $0.departure,
                     arrival: $0.arrival,
-                    predictedDateTime: Date($0.predictedArrivalDate, dateFormat: "yyyy-MM-dd'T'HH:mm:ss")
+                    predictedDateTime: $0.predictedArrivalDate.dateInISOformat()
                 )
             }
         case .parking:
@@ -104,13 +119,13 @@ class HomePresenter {
         case .schedule:
             return timeTable.schedules
                 .filter {
-                    systemService.now <= Date($0.startTime, dateFormat: "yyyy-MM-dd'T'HH:mm:ss")
-                        && Calendar.current.isDate(systemService.now, inSameDayAs:Date($0.startTime, dateFormat: "yyyy-MM-dd'T'HH:mm:ss"))
+                    systemService.now <= $0.startTime.dateInISOformat()
+                        && Calendar.current.isDate(systemService.now, inSameDayAs:$0.startTime.dateInISOformat())
                 }
                 .map {
                 return CourseCellModel(
-                    startTime: Date($0.startTime, dateFormat: "yyyy-MM-dd'T'HH:mm:ss"),
-                    endTime: Date($0.endTime, dateFormat: "yyyy-MM-dd'T'HH:mm:ss") ,
+                    startTime: $0.startTime.dateInISOformat(),
+                    endTime: $0.endTime.dateInISOformat(),
                     course: $0.course + " \($0.scheduleClass)",
                     tutor: $0.lecturer ,
                     location: $0.room  + ", \($0.campus)"
@@ -119,10 +134,15 @@ class HomePresenter {
         }
     }
     
+    
+    /// Get number of sections
     func getNumberOfSections() -> Int {
         return HomeSection.allCases.count
     }
     
+    
+    /// Get number of rows in a section
+    /// - Parameter type: HomeSection
     func getNumberOfRows(for type: HomeSection) -> Int {
         guard let timeTable = timeTable else {
             return 0
@@ -134,7 +154,7 @@ class HomePresenter {
             return timeTable.parkings.count > 0 ? 1 : 0
         case .busSchedule:
             return timeTable.stops.filter {
-                systemService.now <= Date($0.predictedArrivalDate, dateFormat: "yyyy-MM-dd'T'HH:mm:ss")
+                systemService.now <= $0.predictedArrivalDate.dateInISOformat()
             }.count > 0 ? 1 : 0
         }
     }
@@ -144,9 +164,17 @@ private extension String {
     
     static let unknownError = NSLocalizedString("Something went wrong", comment: "Unknown error message")
     static let hey = NSLocalizedString("Hey, ", comment: "Student welcome")
+    
+    /// Init date in ISO format
+    func dateInISOformat() -> Date {
+        return Date(self, dateFormat: "yyyy-MM-dd'T'HH:mm:ss")
+    }
 }
 
 private extension Array {
+    
+    /// Get numbers of item in an array
+    /// - Parameter elementCount: integer
     func first(elementCount: Int) -> Array {
           let min = Swift.min(elementCount, count)
           return Array(self[0..<min])

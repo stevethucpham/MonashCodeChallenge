@@ -20,11 +20,14 @@ class CourseView: UIView {
     @IBOutlet private var locationLabel: UILabel!
     @IBOutlet weak var seperateView: UIView!
     
+    
+    /// Configure cell with cell model
+    /// - Parameter model: HomeCellModel 
     func configureCell(_ model: HomeCellModel) {
         guard let model = model as? CourseCellModel else { return }
         startTimeLabel.text =
-            model.startTime.convertToString(dateFormat: "h:mm a")
-        endTimeLabel.text = model.endTime.convertToString(dateFormat: "h:mm a")
+            model.startTime.timeIn12HourFormat()
+        endTimeLabel.text = model.endTime.timeIn12HourFormat()
         courseLabel.text = model.course
         tutorLabel.text = model.tutor
         locationLabel.text = model.location
@@ -41,8 +44,9 @@ class CourseView: UIView {
         setupToDayLabel()
     }
     
+    
     private func setupToDayLabel() {
-        
+        // Add gradient color
         let gradient = CAGradientLayer()
         gradient.colors = [UIColor(hexString: Color.lightPink)!.cgColor, UIColor(hexString: Color.red)!.cgColor]
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
@@ -50,7 +54,7 @@ class CourseView: UIView {
         gradient.frame = todayView.bounds
         todayView.layer.addSublayer(gradient)
         
-        
+        // Add label
         let label = UILabel(frame: todayView.bounds)
         label.text = "TODAY"
         label.font = UIFont.boldSystemFont(ofSize: 18)
@@ -63,9 +67,19 @@ class CourseView: UIView {
 }
 
 struct CourseCellModel: HomeCellModel {
+    
+    /// Course start time
     var startTime: Date
+    
+    /// Course end time
     var endTime: Date
+    
+    /// Course name
     var course: String
+    
+    /// Tutor of the course
     var tutor: String
+    
+    /// Location where students study
     var location: String
 }

@@ -34,13 +34,14 @@ enum ServiceResult<T> {
 }
 
 
-// MARK: Tram Service Type
+// MARK: API Service Type
 protocol APIRequestType {
     var session: URLSession { get }
-    var token: String? { get set }
     
+    
+    /// Get schedules API
+    /// - Parameter completion: the completion handler which returns a decodable Timetable if success, otherwise returns error.
     func getSchedules(completion: @escaping (ServiceResult<Timetable?>) -> Void)
-    
     
     /// This API request the API and decode the JSON Response
     /// - Parameters:
@@ -49,7 +50,7 @@ protocol APIRequestType {
     func request<T: Decodable> (from url: URL, completionHandler: @escaping (ServiceResult<T>) -> Void)
 }
 
-// MARK: Extension Tram Service Type
+// MARK: Extension Service Type
 extension APIRequestType {
     /// This function requests the API and deserialize the JSON into the model
     /// - Parameters:
@@ -78,11 +79,10 @@ extension APIRequestType {
 }
 
 
-// MARK: Tram Service Client
+// MARK: API Service Client
 class APIRequest: APIRequestType {
     
     let session: URLSession
-    var token: String?
     
     init() {
         let config = URLSessionConfiguration.default
@@ -90,9 +90,8 @@ class APIRequest: APIRequestType {
     }
     
     
-    init(session: URLSession, token: String? = nil) {
+    init(session: URLSession) {
         self.session = session
-        self.token = token
     }
     
     deinit {

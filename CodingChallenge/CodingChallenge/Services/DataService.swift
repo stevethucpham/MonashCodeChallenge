@@ -8,6 +8,8 @@
 
 import Foundation
 
+/// Load and deserialze JSON file in bundle
+/// - Parameter filename: file name
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
     

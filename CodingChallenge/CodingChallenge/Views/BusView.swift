@@ -17,6 +17,8 @@ class BusView: UIView {
     @IBOutlet weak var seperateView: UIView!
 
     
+    /// Configure cell with cell model
+    /// - Parameter model: BusCellModel
     func configureCell(_ model: BusCellModel) {
         departureLabel.text = model.departure
         arrivalLabel.text = model.arrival
@@ -39,8 +41,14 @@ class BusView: UIView {
 }
 
 struct BusCellModel: HomeCellModel {
+    
+    /// Departure stop
     var departure: String
+    
+    /// Arrival stop
     var arrival: String
+    
+    /// Predicted arrival time
     var predictedDateTime: Date
     
 }
