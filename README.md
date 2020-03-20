@@ -67,7 +67,9 @@ The default MVC architecture that Apple supports for iOS is good for a small pro
 
 ### UI Implementation
 The given UI requires customization for the navigation controller as well as adding corner radius and shadow layer to table view section. 
-![](app_design.png)
+
+![](app_design.png =300x)
+
 #### Customize the Navigation Controller
 I created a subclass of UIView named NavigationTitleView which includes two labels in a vertial stack view and add it to the titleView of the navigationItem. 
 
@@ -108,8 +110,10 @@ Table View
 │    └── stack view
 |        └── Bus Stop View 
 ```
-UI after implementation
-![](app_screenshot_1.png)
+UI after implementation:
+
+![](app_screenshot_1.png = 300x)
+
 ### Request and Deserialize JSON
 The `APIRequest.swift` has been implemented to call the request deserialize the JSON response into `Timetable` instance. To decode the JSON, I have used Swift `Decodable` protocol. The model looks like this
 ```
